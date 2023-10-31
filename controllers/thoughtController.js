@@ -41,7 +41,7 @@ module.exports = {
             res.status(404).json({ message: 'No thought with that ID' });
         }
         await User.deleteMany({ _id: { $in: thought.users } });
-            res.json({ message: 'Thought and users deleted!' });
+            res.json({ message: 'Thought deleted!' });
         } catch (err) {
             res.status(500).json(err);
         }
@@ -63,4 +63,26 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+            //create a friend
+    async createReaction(req, res) {
+        try {
+            const reaction = await Thought.create(req.body);
+                res.json(reaction);
+        } catch (err) {
+                console.log(err);
+        return res.status(500).json(err);
+        }
+    },
+    //delete a reaction
+    async deleteReaction(req, res) {
+        try {
+            const reaction = await Thought.findOneAndDelete({ _id: req.params.reactionId });
+        if (!reaction) {
+            res.status(404).json({ message: 'No reaction with that ID'});
+        }
+            res.json({ message: 'reaction was deleted' });
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    }
 };

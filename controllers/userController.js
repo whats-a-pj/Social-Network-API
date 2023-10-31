@@ -38,7 +38,6 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
-    //todo update a user
     async updateUser(req, res) {
         try {
             const user = await User.findOneAndUpdate(
@@ -68,6 +67,28 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+        //create a friend
+    async createFriend(req, res) {
+        try {
+            const friend = await User.create(req.body);
+            res.json(friend);
+        } catch (err) {
+            console.log(err);
+        return res.status(500).json(err);
+        }
+    },
+    //delete a friend
+    async deleteFriend(req, res) {
+        try {
+            const friend = await User.findOneAndDelete({ _id: req.params.friendId });
+        if (!friend) {
+            res.status(404).json({ message: 'No friend with that ID'});
+        }
+            res.json({ message: 'friend was deleted' });
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    }
 };
 // const mongoose = require('mongoose');
 // const User = require('../models');
