@@ -1,5 +1,11 @@
 # Social-Network-API
 
+## Table of Contents
+
+- [Description](#description)
+- [License](#license)
+- [Questions](#questions)
+
 ## Description
 
 A database structure for a social network. This application does not have a front-end set up but you can see the functionality of it working in my walkthrough video!
@@ -8,12 +14,6 @@ This application was built to show what a strong backend looks like for a social
 Users with coding experience as well as experience with MongoDB can clone this repo and update the models to tailor this simple backend to their personal needs.
 
 [Walkthrough of Functional Routes on Insomnia](https://drive.google.com/file/d/11UW76WfsVGvOQ1OiOMFVUATaU-MiBdRW/view?usp=sharing)
-
-## Table of Contents
-
-- [Description](#description)
-- [License](#license)
-- [Questions](#questions)
 
 ## License
 
